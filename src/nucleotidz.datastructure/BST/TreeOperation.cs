@@ -43,6 +43,10 @@ namespace nucleotidz.datastructure.BST
                 {
                     GetParent(node, root.Left);
                 }
+                else
+                {
+                    return root.Left;
+                }
 
             }
             if (node.value > root.value)
@@ -51,21 +55,25 @@ namespace nucleotidz.datastructure.BST
                 {
                     GetParent(node, root.Right);
                 }
+                else
+                {
+                    return root.Right;
+                }
             }
-            return root;
+            return default;
         }
         public int GetDistance(Node node, Node root, int i = 0)
         {
             if (node.value < root.value)
             {
                 i++;
-                GetDistance(node, root.Left,i);
+                GetDistance(node, root.Left, i);
 
             }
             if (node.value > root.value)
             {
                 i++;
-                GetDistance(node, root.Right,i);
+                GetDistance(node, root.Right, i);
 
             }
             return i;

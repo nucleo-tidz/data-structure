@@ -8,7 +8,7 @@ using CustomStack = nucleotidz.datastructure.Stack;
 using CustomQueue = nucleotidz.datastructure.Queue;
 Console.WriteLine("Hello, World!");
 
-Enqueue();
+CreateTree();
 
 Console.ReadLine();
 
