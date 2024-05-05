@@ -5,9 +5,10 @@ using System.ComponentModel.Design.Serialization;
 using BinarySearchTree = nucleotidz.datastructure.BST;
 using LinkList = nucleotidz.datastructure.LinkList;
 using CustomStack = nucleotidz.datastructure.Stack;
+using CustomQueue = nucleotidz.datastructure.Queue;
 Console.WriteLine("Hello, World!");
 
-Push();
+Enqueue();
 
 Console.ReadLine();
 
@@ -106,6 +107,22 @@ static void Push()
     }
 
     Console.WriteLine(stack.Pop());
+}
+
+#endregion
+
+#region Queue
+static void Enqueue()
+{
+    CustomQueue.Queue queue = new(5);
+    for (int i = 0; i < 5; i++)
+    {
+        queue.Enqueue(i);
+    }
+
+    Console.WriteLine(queue.Dequeue());
+    Console.WriteLine(queue.Dequeue());
+    Console.WriteLine(queue.Dequeue());
 }
 
 #endregion
