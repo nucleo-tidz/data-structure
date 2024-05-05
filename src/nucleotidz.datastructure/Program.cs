@@ -4,9 +4,10 @@ using nucleotidz.datastructure.LinkList;
 using System.ComponentModel.Design.Serialization;
 using BinarySearchTree = nucleotidz.datastructure.BST;
 using LinkList = nucleotidz.datastructure.LinkList;
+using CustomStack = nucleotidz.datastructure.Stack;
 Console.WriteLine("Hello, World!");
 
-Delete();
+Push();
 
 Console.ReadLine();
 
@@ -90,6 +91,21 @@ static void Delete()
 {
     LinkList.Node node = CreateLinkList();
     new LinkedListOperation().Delete(node,4);
+}
+
+#endregion
+
+#region Stack
+
+static void Push()
+{
+    CustomStack.Stack stack= new(5);
+    for(int i = 0; i < 5; i++)
+    {
+      stack.Push(i);
+    }
+
+    Console.WriteLine(stack.Pop());
 }
 
 #endregion
