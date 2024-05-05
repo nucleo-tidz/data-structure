@@ -22,7 +22,6 @@ namespace nucleotidz.datastructure.LinkList
 
             return node;
         }
-
         public Node InsertFront(Node node, int value)
         {
             if (node == null)
@@ -36,7 +35,6 @@ namespace nucleotidz.datastructure.LinkList
             }
             return node;
         }
-
         public Node InsertAfter(Node node, int value, int referenceValue)
         {
             List<int> values = new();
@@ -52,7 +50,6 @@ namespace nucleotidz.datastructure.LinkList
             }
             return node;
         }
-
         public Node Delete(Node node, int value)
         {
             Node refernceNode = GetNodebyValue(value, node);
@@ -60,7 +57,6 @@ namespace nucleotidz.datastructure.LinkList
             refernceNode.next.previous = refernceNode.previous;
             return node;
         }
-
         private Node GetLastNode(Node node)
         {
             if (node.next == null)
@@ -82,7 +78,6 @@ namespace nucleotidz.datastructure.LinkList
             }
             return values;
         }
-
         private Node GetFirstNode(Node node)
         {
             if (node.previous == null)
