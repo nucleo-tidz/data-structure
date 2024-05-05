@@ -6,7 +6,7 @@ using BinarySearchTree = nucleotidz.datastructure.BST;
 using LinkList = nucleotidz.datastructure.LinkList;
 Console.WriteLine("Hello, World!");
 
-CreateLinkListFromTop();
+Delete();
 
 Console.ReadLine();
 
@@ -51,7 +51,7 @@ static void FindDistance()
 
 #region Linked List
 
-static void CreateLinkList()
+static LinkList.Node CreateLinkList()
 {
     LinkList.Node node = new LinkedListOperation().InsertLast(null, 1);
     new LinkedListOperation().InsertLast(node, 2);
@@ -62,6 +62,7 @@ static void CreateLinkList()
     new LinkedListOperation().InsertLast(node, 7);
     new LinkedListOperation().InsertLast(node, 8);
     new LinkedListOperation().InsertLast(node, 9);
+    return node;
 
 }
 static void CreateLinkListFromTop()
@@ -76,6 +77,19 @@ static void CreateLinkListFromTop()
     new LinkedListOperation().InsertFront(node, 2);
     new LinkedListOperation().InsertFront(node, 1);
 
+}
+
+static void InsertAfter()
+{
+    LinkList.Node node = CreateLinkList();
+    new LinkedListOperation().InsertAfter(node, 11, 9);
+    new LinkedListOperation().InsertAfter(node, 10, 9);
+}
+
+static void Delete()
+{
+    LinkList.Node node = CreateLinkList();
+    new LinkedListOperation().Delete(node,4);
 }
 
 #endregion
