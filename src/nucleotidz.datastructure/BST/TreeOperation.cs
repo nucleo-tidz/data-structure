@@ -2,7 +2,7 @@
 
 namespace nucleotidz.datastructure.BST
 {
-    public class Tree
+    public class TreeOperation
     {
         public Node Insert(Node node, int value)
         {
