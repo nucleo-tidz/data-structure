@@ -8,7 +8,7 @@ using CustomStack = nucleotidz.datastructure.Stack;
 using CustomQueue = nucleotidz.datastructure.Queue;
 Console.WriteLine("Hello, World!");
 
-CreateTree();
+GetDuplicate();
 
 Console.ReadLine();
 
@@ -66,6 +66,12 @@ static LinkList.Node CreateLinkList()
     new LinkedListOperation().InsertLast(node, 9);
     return node;
 
+}
+static void GetDuplicate()
+{
+    LinkList.Node node = CreateLinkList();
+    new LinkedListOperation().InsertLast(node, 6);
+    var duplicateNode=new LinkedListOperation().GetDuplicate(node);
 }
 static void CreateLinkListFromTop()
 {

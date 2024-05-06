@@ -57,6 +57,22 @@ namespace nucleotidz.datastructure.LinkList
             refernceNode.next.previous = refernceNode.previous;
             return node;
         }
+
+        public Node GetDuplicate(Node node)
+        {
+            List<int> values = new();
+            values.Add(node.value);
+            while (node.next != null)
+            {
+                if (values.Any(_ => _ == node.next.value))
+                {
+                    return node.next;
+                }
+                values.Add(node.next.value);
+                node = node.next;
+            }
+            return null;
+        }
         private Node GetLastNode(Node node)
         {
             if (node.next == null)
@@ -71,6 +87,7 @@ namespace nucleotidz.datastructure.LinkList
         private List<int> GetValues(Node node)
         {
             List<int> values = new();
+            values.Add(node.value);
             while (node.next != null)
             {
                 values.Add(node.next.value);
