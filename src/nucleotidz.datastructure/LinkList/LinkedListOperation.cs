@@ -37,22 +37,30 @@ namespace nucleotidz.datastructure.LinkList
         }
         public Node InsertAfter(Node node, int value, int referenceValue)
         {
-            List<int> values = new();
-            values.Add(value);
             Node refernceNode = GetNodebyValue(referenceValue, node);
-            values.AddRange(GetValues(refernceNode));
-
-            // Make next null of reefence and rebalnce by running insert last after it
-            refernceNode.next = null;
-            foreach (int val in values)
+            Node newNode = new Node(value, refernceNode.next, refernceNode);
+            if (refernceNode.next is not null)
             {
-                InsertLast(refernceNode, val);
+                refernceNode.next.previous = newNode;
             }
+            refernceNode.next = newNode;
             return node;
         }
         public Node Delete(Node node, int value)
         {
             Node refernceNode = GetNodebyValue(value, node);
+            //If reference node is the first node repalce it with the next node
+            if (refernceNode.previous == null)
+            {
+                node = refernceNode.next;
+                refernceNode.previous = null;
+               
+            }
+            //If reference node is the last node
+            else if (refernceNode.next == null)
+            {
+                refernceNode.previous.next = null;
+            }
             refernceNode.previous.next = refernceNode.next;
             refernceNode.next.previous = refernceNode.previous;
             return node;
@@ -84,9 +92,9 @@ namespace nucleotidz.datastructure.LinkList
                 return GetLastNode(node.next);
             }
         }
-        private List<int> GetValues(Node node)
+        private List<int> GetValues(Node node, List<int> values)
         {
-            List<int> values = new();
+            values ??= new();
             values.Add(node.value);
             while (node.next != null)
             {
